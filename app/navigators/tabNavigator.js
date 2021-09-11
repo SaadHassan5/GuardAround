@@ -59,11 +59,15 @@ export function TabNavigator({ navigation }) {
 
     <Tab.Navigator
       barStyle={{
-        backgroundColor: 'white', borderTopLeftRadius: 30,
-        borderTopRightRadius: 30, borderWidth: 1, borderColor: palette.svgGrayColor,
-        paddingLeft: 20, paddingRight: 20, height: HP(9), 
+        backgroundColor: 'white', 
+        // borderTopLeftRadius: 30,
+        // borderTopRightRadius: 30,
+        //  borderWidth: 1,
+        //  borderColor: palette.svgGrayColor,
+        // paddingLeft: 20, paddingRight: 20, 
+        height: HP(9), 
         // padding: HP(1),
-        paddingBottom:HP(0)
+        // paddingBottom:HP(0)
       }}>
       <Tab.Screen name="Location" component={Location}
         options={{
@@ -111,7 +115,11 @@ export function TabNavigator({ navigation }) {
 
           tabBarIcon: ({ color, size, focused }) => (
             
-            <View style={{ backgroundColor: focused ? '#2fd3ca' : 'white',padding:WP(3),borderRadius:WP(9),marginBottom:WP(0) }}>
+            <View style={{ 
+              padding:WP(3),
+              borderRadius:WP(9),
+              marginBottom:WP(0),
+              backgroundColor: focused ? '#2fd3ca' : palette.white, }}>
               {/* <TABSVGS.feedtab /> */}
               <NotiIcon fill={focused?palette.white:'#2fd3ca'} />
             </View>
@@ -124,7 +132,7 @@ export function TabNavigator({ navigation }) {
 
           tabBarIcon: ({ color, size, focused }) => (
             
-            <View style={{ backgroundColor: focused ? '#2fd3ca' : 'white',padding:WP(3),borderRadius:WP(9),marginBottom:WP(0) }}>
+            <View style={{ backgroundColor: focused ? '#2fd3ca' : 'white',padding:WP(3),borderRadius:WP(9) }}>
               {/* <TABSVGS.feedtab /> */}
               <UserIcon fill={focused?palette.white:'#2fd3ca'} />
             </View>

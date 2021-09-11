@@ -6,28 +6,32 @@ export const feedData = [
     Name: 'Saad Hassan', Activity: "Suspicious Activity",
     Distance: '2 miles away', Time: "1 month ago",
     likes: 3456, comments: 432,
-    img: require('../assets/Imgs/ironFeed.jpg')
+    img: require('../assets/Imgs/ironFeed.jpg'),
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lacus suscipit, blandit tellus aliquam, tempus ex. Ut fermentum malesuada lorem, in sollicitudin elit. Curabitur sit amet lectus luctus, congue leo id, pulvinar orci. Integer dapibus sodales dui, id molestie enim mattis quis. Nulla aliquet, libero vel sagittis ultrices, sapien sapien semper ligula, at porttitor elit metus at est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sodales augue nunc, id tincidunt ipsum consectetur vitae. Mauris a hendrerit dui. Vestibulum accumsan, purus sit amet sodales facilisis, sapien nisi finibus justo, ut accumsan massa orci eu velit. Suspendisse sit amet lectus eu nulla pretium vestibulum a quis libero.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lacus suscipit, blandit tellus aliquam, tempus ex. Ut fermentum malesuada lorem, in sollicitudin elit. Curabitur sit amet lectus luctus, congue leo id, pulvinar orci. Integer dapibus sodales dui, id molestie enim mattis quis. Nulla aliquet, libero vel sagittis ultrices, sapien sapien semper ligula, at porttitor elit metus at est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sodales augue nunc, id tincidunt ipsum consectetur vitae. Mauris a hendrerit dui. Vestibulum accumsan, purus sit amet sodales facilisis, sapien nisi finibus justo, ut accumsan massa orci eu velit. Suspendisse sit amet lectus eu nulla pretium vestibulum a quis libero.'
   },
   {
     userImg: require('../assets/Imgs/dp.jpg'),
     Name: 'Sammad', Activity: "Suspicious Activity",
     Distance: '2 miles away', Time: "1 month ago",
     likes: 3456, comments: 432,
-    img: require('../assets/Imgs/feed.jpg')
+    img: require('../assets/Imgs/feed.jpg'),
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lacus suscipit, blandit tellus aliquam, tempus ex. Ut fermentum malesuada lorem, in sollicitudin elit. Curabitur sit amet lectus luctus, congue leo id, pulvinar orci. Integer dapibus sodales dui, id molestie enim mattis quis. Nulla aliquet, libero vel sagittis ultrices, sapien sapien semper ligula, at porttitor elit metus at est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sodales augue nunc, id tincidunt ipsum consectetur vitae. Mauris a hendrerit dui. Vestibulum accumsan, purus sit amet sodales facilisis, sapien nisi finibus justo, ut accumsan massa orci eu velit. Suspendisse sit amet lectus eu nulla pretium vestibulum a quis libero.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lacus suscipit, blandit tellus aliquam, tempus ex. Ut fermentum malesuada lorem, in sollicitudin elit. Curabitur sit amet lectus luctus, congue leo id, pulvinar orci. Integer dapibus sodales dui, id molestie enim mattis quis. Nulla aliquet, libero vel sagittis ultrices, sapien sapien semper ligula, at porttitor elit metus at est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sodales augue nunc, id tincidunt ipsum consectetur vitae. Mauris a hendrerit dui. Vestibulum accumsan, purus sit amet sodales facilisis, sapien nisi finibus justo, ut accumsan massa orci eu velit. Suspendisse sit amet lectus eu nulla pretium vestibulum a quis libero.'
   },
   {
     userImg: require('../assets/Imgs/dp.jpg'),
     Name: 'Junaid', Activity: "Suspicious Activity",
     Distance: '2 miles away', Time: "1 month ago",
     likes: 3456, comments: 432,
-    img: require('../assets/Imgs/feed.jpg')
+    img: require('../assets/Imgs/feed.jpg'),
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lacus suscipit, blandit tellus aliquam, tempus ex. Ut fermentum malesuada lorem, in sollicitudin elit. Curabitur sit amet lectus luctus, congue leo id, pulvinar orci. Integer dapibus sodales dui, id molestie enim mattis quis. Nulla aliquet, libero vel sagittis ultrices, sapien sapien semper ligula, at porttitor elit metus at est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sodales augue nunc, id tincidunt ipsum consectetur vitae. Mauris a hendrerit dui. Vestibulum accumsan, purus sit amet sodales facilisis, sapien nisi finibus justo, ut accumsan massa orci eu velit. Suspendisse sit amet lectus eu nulla pretium vestibulum a quis libero.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lacus suscipit, blandit tellus aliquam, tempus ex. Ut fermentum malesuada lorem, in sollicitudin elit. Curabitur sit amet lectus luctus, congue leo id, pulvinar orci. Integer dapibus sodales dui, id molestie enim mattis quis. Nulla aliquet, libero vel sagittis ultrices, sapien sapien semper ligula, at porttitor elit metus at est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sodales augue nunc, id tincidunt ipsum consectetur vitae. Mauris a hendrerit dui. Vestibulum accumsan, purus sit amet sodales facilisis, sapien nisi finibus justo, ut accumsan massa orci eu velit. Suspendisse sit amet lectus eu nulla pretium vestibulum a quis libero.'
   },
   {
     userImg: require('../assets/Imgs/dp.jpg'),
     Name: 'Irfan', Activity: "Suspicious Activity",
     Distance: '2 miles away', Time: "1 month ago",
     likes: 3456, comments: 432,
-    img: require('../assets/Imgs/feed.jpg')
+    img: require('../assets/Imgs/feed.jpg'),
+    detail:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lacus suscipit, blandit tellus aliquam, tempus ex. Ut fermentum malesuada lorem, in sollicitudin elit. Curabitur sit amet lectus luctus, congue leo id, pulvinar orci. Integer dapibus sodales dui, id molestie enim mattis quis. Nulla aliquet, libero vel sagittis ultrices, sapien sapien semper ligula, at porttitor elit metus at est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sodales augue nunc, id tincidunt ipsum consectetur vitae. Mauris a hendrerit dui. Vestibulum accumsan, purus sit amet sodales facilisis, sapien nisi finibus justo, ut accumsan massa orci eu velit. Suspendisse sit amet lectus eu nulla pretium vestibulum a quis libero.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lacus suscipit, blandit tellus aliquam, tempus ex. Ut fermentum malesuada lorem, in sollicitudin elit. Curabitur sit amet lectus luctus, congue leo id, pulvinar orci. Integer dapibus sodales dui, id molestie enim mattis quis. Nulla aliquet, libero vel sagittis ultrices, sapien sapien semper ligula, at porttitor elit metus at est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sodales augue nunc, id tincidunt ipsum consectetur vitae. Mauris a hendrerit dui. Vestibulum accumsan, purus sit amet sodales facilisis, sapien nisi finibus justo, ut accumsan massa orci eu velit. Suspendisse sit amet lectus eu nulla pretium vestibulum a quis libero.'
   },
 ]
 const CountryCode = [

@@ -18,6 +18,11 @@ export const Location = ({ navigation }) => {
         latitudeDelta: 0.001,
         longitudeDelta: 0.001,
     });
+    const [marCord, setMarCord] = useState({
+        latitude: 10,
+        longitude: 10,
+    })
+    const [check,setCheck] = useState(false);
     useEffect(() => {
         console.log('Location');
         Geolocation.getCurrentPosition((pos) => {
@@ -32,10 +37,6 @@ export const Location = ({ navigation }) => {
             console.log(err);
         });
     }, []);
-    const [marCord, setMarCord] = useState({
-        latitude: 10,
-        longitude: 10,
-    })
     return (
         <View style={Styles.container}>
             <View style={Styles.dpView}>
@@ -61,19 +62,21 @@ export const Location = ({ navigation }) => {
                     zoom: parseInt(1)
                 }} */}
             {/* /> */}
-            <MapView style={{ borderWidth: 1, borderColor: 'red', width: '100%', height: HP(100), bottom: HP(0) }}
+            <MapView style={{ borderWidth: 1, borderColor: 'red', width: '100%', height: HP(100) }}
                 showsUserLocation={true}
                 followsUserLocation={true}
                 initialRegion={position}
                 // region={position}
-                onPress={(e) => { console.log(e.nativeEvent.coordinate); setMarCord(e.nativeEvent.coordinate); }}
+                onPress={(e) => { console.log(e.nativeEvent.coordinate);setCheck(true); setMarCord(e.nativeEvent.coordinate); }}
             >
                 {/* <Marker
                     coordinate={marCord}
                     image={IMAGES.dp}
                     style={{width:WP(20)}}
                 /> */}
+                {check&&
                 <CustomMarker navigation={()=>navigation.navigate('Incident')} pinColor={'red'} value={'saad'} coordinate={marCord} />
+                }
                 {/* <MapView.Cicle center={{ latitude: 43.604461, longitude: 1.444031 }}
                     radius={1500}
                     strokeWidth={2}

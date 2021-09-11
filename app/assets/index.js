@@ -21,9 +21,13 @@ import camera from './Imgs/SVG/camera.svg';
 import capture from './Imgs/SVG/captureImg.svg';
 import videoButton from './Imgs/SVG/videoButon.svg';
 import pauseButton from './Imgs/SVG/pauseButton.svg';
+import cross from './Imgs/SVG/cross.svg';
+import drop from './Imgs/SVG/drop.svg';
 
 
-export const SVGS = {heart,
+export const SVGS = {
+    heart,
+    drop,
     logos,
     send,
     downArrow,
@@ -36,7 +40,8 @@ export const SVGS = {heart,
     camera,
     videoButton,
     pauseButton,
-    capture
+    capture,
+    cross
 }
 
 import feedtab from './Imgs/SVG/tabIcon/feedtab.svg'

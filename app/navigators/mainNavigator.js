@@ -9,6 +9,7 @@ import { Feed } from '../screens/Feeds/feed';
 import { CustomMarker } from '../assets/Imgs/components/CustomMarker';
 import { Incident } from '../screens/Feeds/Incident';
 import { Camera } from '../screens/Add/camera';
+import { AddIncident } from '../screens/Add/AddIncident';
 // import { phone } from '../screens/Login/phone';
 const Stack = createStackNavigator();
 export const MainNavigator = () => (
@@ -23,6 +24,7 @@ export const MainNavigator = () => (
 <Stack.Screen name="Feed" component={Feed} />
 <Stack.Screen name="Custom" component={CustomMarker} />
 <Stack.Screen name="Incident" component={Incident} />
+<Stack.Screen name="AddIncident" component={AddIncident} />
 <Stack.Screen name="Camera" component={Camera} />
   </Stack.Navigator>
 )

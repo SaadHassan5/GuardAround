@@ -5,7 +5,7 @@ import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import { IMAGES } from "../..";
 import { HP, WP } from "../../../config/screen-ratio";
 // import Pin from "../SVG/pin.svg";
-import Pin from "../SVG/red.svg";
+import Pin from "../SVG/marker.svg";
 import IconMap from 'react-native-vector-icons/Fontisto';
 export const CustomMarker = ({ navigation,coordinate, pinColor, value }) => {
   return (
@@ -24,8 +24,7 @@ export const CustomMarker = ({ navigation,coordinate, pinColor, value }) => {
        {/* <Image source={IMAGES.pin1} resizeMode={'stretch'} 
        style={{width:40,height:40}}
        /> */}
-       <Image source={IMAGES.dp} resizeMode={'cover'} style={{position: 'absolute',width:WP(7),height:WP(7),borderRadius:WP(20),marginVertical:HP(.8)}}/> 
-
+       <Image source={IMAGES.dp} resizeMode={'cover'} style={{position: 'absolute',width:WP(6),height:WP(6),borderRadius:WP(20),marginVertical:HP(.5)}}/> 
       </View>
     </Marker>
   );

@@ -7,6 +7,7 @@ export const feedStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
+        paddingBottom:HP(0)
     },
     ver_txt: {
         // marginLeft: WP((68 / 375) * 100), 

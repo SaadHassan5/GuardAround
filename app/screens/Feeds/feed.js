@@ -38,26 +38,27 @@ export const Feed = ({ navigation }) => {
             {/* <Text>Saad</Text> */}
             <Header title={'Feed'} />
             {/* <Text style={Styles.ver_txt}>Feed</Text> */}
+            {/* <View style={{marginBottom:HP(0)}}> */}
             <FlatList
                 // padding={30}
                 numColumns={1}
                 data={CONSTANTS.feedData}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) =>
-                    <View style={{
-                        marginTop: HP(3),
-                        paddingHorizontal: WP((8 / 375) * 100)
-                    }}>
+                    <View style={{marginTop: HP(3),paddingHorizontal: WP((8 / 375) * 100)}}>
                         <View style={{ flexDirection: 'row' }}>
                             <Image source={item.userImg} style={{ width: WP(15), height: WP(15), borderRadius: WP(15 / 2) }} />
-                            <View>
-                                <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 21, color: '#333333', }}>{item.Name}</Text>
-                                <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 11, color: '#333333', }}>{item.Distance}</Text>
+                            <View style={{paddingLeft:WP(2)}}>
+                                <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 19, color: '#333333', }}>{item.Name}</Text>
+                                <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 10, color: '#333333', }}>{item.Distance}</Text>
                             </View>
-                            <View style={{ marginTop: HP(1), right: WP(2), position: 'absolute', }}>
+                            <View style={{ marginTop: HP(1), right: WP(8), position: 'absolute', }}>
                                 <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 12, marginLeft: WP(15), color: '#333333', backgroundColor: 'red', color: 'white', paddingLeft: WP(1), paddingRight: WP(1), borderRadius: WP(5) }}>{item.Activity}</Text>
-                                <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 11, marginLeft: WP(20), color: '#333333', marginTop: HP(1) }}>{item.Time}</Text>
+                                <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 10, marginLeft: WP(20), color: '#333333', marginTop: HP(1) }}>{item.Time}</Text>
                             </View>
+                            <TouchableOpacity style={{position: 'absolute',right: WP(0),marginTop:HP(1)}}>
+                                <SVGS.drop />
+                            </TouchableOpacity>
                         </View>
                         <Image source={item.img} style={{ marginLeft: WP(3), marginTop: HP(1), width: WP((347 / 375) * 100), height: HP((311 / 812) * 100), borderRadius: WP(6) }} />
                         <View style={{ flexDirection: 'row', marginLeft: WP((14 / 375) * 100) }}>
@@ -87,9 +88,16 @@ export const Feed = ({ navigation }) => {
                                 <Text style={{ marginLeft: ((18 / 375) * 100), paddingLeft: WP(2), paddingRight: WP(2), paddingTop: WP(0), backgroundColor: 'skyblue', color: 'white', height: HP((20 / 812) * 100), borderRadius: WP(5) }}>{item.comments}</Text>
                             </TouchableOpacity>
                         </View>
+                        <Text style={{ marginLeft: WP((14 / 375) * 100), fontFamily: 'Poppins-Bold',fontSize:18 }} numberOfLines={3}>
+                        Detail of the Incident
+                        </Text>
+                        <Text style={{ marginLeft: WP((14 / 375) * 100), fontFamily: 'Poppins-Regular',fontSize:13 }} numberOfLines={3}>
+                        {item.detail}
+                        </Text>
                     </View>
                 }
             />
+            {/* </View> */}
             <BottomSheet
                 isVisible={modComment}
                 containerStyle={{ backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)' }}
@@ -97,8 +105,6 @@ export const Feed = ({ navigation }) => {
             >
                 <View style={{
                     width: WP(100),
-                    //  paddingRight:WP(50),
-                    // paddingBottom:HP(3),
                     borderColor: palette.baseLine,
                     borderWidth: 3,
                     backgroundColor: palette.white,
@@ -138,57 +144,7 @@ export const Feed = ({ navigation }) => {
                     </View>
                 </View>
             </BottomSheet>
-            {/* <Modal
-                visible={modComment}
-                transparent={true}  
-                animationType="slide"
-                // coverScreen={''}
-                onRequestClose={() => { console.log('closed'); setModComment(false) }}
-            >
-                <View style={{
-                    width: WP(100),
-                    //  paddingRight:WP(50),
-                    // paddingBottom:HP(3),
-                    borderColor: palette.baseLine,
-                    borderWidth: 3,
-                    backgroundColor: palette.white,
-                    height: HP(80),
-                    borderTopLeftRadius: WP(10),
-                    borderTopRightRadius: WP(10),
-                    // paddingTop:WP(55), 
-                    marginTop: HP(23),
-                    paddingLeft: WP(3)
-                }}>
-                    <View style={{ flexDirection: 'row' }}>
-                        <Text style={{ fontFamily: 'Poppins-SemiBold', fontSize: 18, paddingLeft: WP(3) }}>Comments</Text>
-                        <TouchableOpacity onPress={() => setModComment(false)} style={{ marginLeft: WP(45) }}>
-                            <Text style={{ fontFamily: 'Poppins-SemiBold', fontSize: 16 }}>Done</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <FlatList
-                        // padding={30}
-                        numColumns={1}
-                        data={CONSTANTS.comment}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={({ item }) =>
-                            <View style={{ flexDirection: 'row', paddingTop: HP(3) }}>
-                                <Image source={item.userImg} style={{ width: WP(15), height: WP(15), borderRadius: WP(15 / 2) }} />
-                                <View style={{ paddingLeft: WP(3) }}>
-                                    <Text style={{ fontFamily: 'Poppins-SemiBold', fontSize: 16 }}>{item.name}</Text>
-                                    <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 14, width: WP(70) }}>{item.comment}</Text>
-                                </View>
-                            </View>
-                        }
-                    />
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', position: 'absolute', bottom: HP(0), backgroundColor: 'white', paddingTop: HP(1), paddingBottom: HP(2) }}>
-                        <TextInput multiline={true} placeholder={"Add Comment"} style={{ borderWidth: 1, borderRadius: WP(3), width: WP(75), marginLeft: WP(7) }} />
-                        {/* <SVGS.send /> */}
-            {/* <TouchableOpacity style={{ paddingLeft: WP(5), }}>
-                            <SVGS.send />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </Modal> */}
+
         </View>
     )
 }

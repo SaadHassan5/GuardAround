@@ -1,21 +1,28 @@
 import React from 'react';
 import { useState, useRef } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 import { SVGS } from '../../assets';
 import { HP } from '../../config/screen-ratio';
 import { LogBox } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import CameraRoll from "@react-native-community/cameraroll";
-LogBox.ignoreAllLogs();
+// LogBox.ignoreAllLogs();
 export const Camera = ({ navigation }) => {
+
     const [isRecording, setisRecording] = useState(false)
+    const [captured, setCaptured] = useState([])
     const cameraRef = useRef();
     const takePicture = async () => {
         const options = { quality: 0.5, base64: true };
         const data = await cameraRef.current.takePictureAsync(options);
-        // console.log(data.uri);
-        console.log((await CameraRoll.save(data.uri, { type: 'photo', album: 'GuardAround' })).toString());
+        console.log(data.uri);
+        console.warn('Image Saved');
+        alert("Image Saved")
+        // console.log((await CameraRoll.save(data.uri, { type: 'photo', album: 'GuardAround' })).toString());
+        // const url =await CameraRoll.save(data.uri, { type: 'photo', album: 'GuardAround' })).toString();
+        captured.push(await (await CameraRoll.save(data.uri, { type: 'photo', album: 'GuardAround' })).toString());
         // CameraRoll.save(data.uri, { type: 'photo', album: 'GuardAround' });
+
     };
     const takeVideo = async () => {
         // const data;
@@ -31,8 +38,19 @@ export const Camera = ({ navigation }) => {
             setisRecording(false);
             await cameraRef.current.stopRecording();
             console.log('Khtam');
+            alert("Video Saved")
+
         }
     };
+    const check = () => {
+        for (let i = 0; i < captured.length; i++)
+            console.log(captured[i]);
+        navigation.navigate({
+            name: 'AddIncident',
+            params: { path: captured },
+            merge: true
+        })
+    }
     return (
         <View style={{ flex: 1, paddingBottom: HP(0) }}>
             <RNCamera
@@ -54,6 +72,11 @@ export const Camera = ({ navigation }) => {
                         :
                         <SVGS.videoButton />
                     }
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => { console.log('Check'); check() }} style={{ margin: HP(2) }}>
+                    <Text style={{ fontFamily: 'Poppins-Bold', color: 'white' }}>Go Back</Text>
+
                 </TouchableOpacity>
             </View>
         </View>
