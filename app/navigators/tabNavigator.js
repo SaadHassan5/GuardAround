@@ -21,7 +21,7 @@ import { LocationIcon } from '../assets/Imgs/components/locationIcon';
 import { AddIcon } from '../assets/Imgs/components/addIcon';
 import { NotiIcon } from '../assets/Imgs/components/notiIcon';
 import { UserIcon } from '../assets/Imgs/components/userIcon';
-import { AddIncident } from '../screens/Add/AddIncident';
+import  AddIncident  from '../screens/Add/AddIncident';
 export function TabNavigator({ navigation }) {
   return (
     // <Tab.Navigator

@@ -15,8 +15,11 @@ import { RNCamera, FaceDetector } from 'react-native-camera';
 import { CustomMarker } from '../../assets/Imgs/components/CustomMarker';
 import MapView from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
+import { connect } from 'react-redux';
+import { CameraImgs, ChangeBackgroundColor } from '../../../root/action';
+
 LogBox.ignoreAllLogs();
-export const AddIncident = ({ navigation, route }) => {
+const AddIncident = (props) => {
     const [position, setPosition] = useState({
         latitude: 10,
         longitude: 10,
@@ -27,11 +30,38 @@ export const AddIncident = ({ navigation, route }) => {
         latitude: 10,
         longitude: 10,
     })
-    // const [preview, setPreview] = useState([]);
-    const preview = [];
+    const [capt, setCapt] = useState([]);
+    // const preview = [];
     const [selectedValue, setSelectedValue] = useState("Select Post Type");
+
+    // const preview = mpreview[0].split(',')
+
     useEffect(() => {
+        // const preview = JSON.stringify(props.Imgs)
+        
+        // if(preview.length>3){
+        //     console.log("Preview",preview);
+        //     const one = preview.split(']]')
+        //     console.log("One",one[0]);
+        //     const two = one[0].split('[[')
+        //     console.log("two",two[1]);
+        //     const three = two[1].replace(/"/ig,'')
+        //     console.log("Three",three);
+            
+        //     const mainArray = three.split(',')
+        //     console.log("four",mainArray);
+        //     setCapt(mainArray)
+        //     }
         console.log('Location');
+        console.log(props.Imgs);
+        for (let index = 0; index < props.Imgs.length; index++) {
+            // const element = array[index];
+            console.log("Image"+index+"  "+JSON.stringify(props.Imgs[index]));
+            // preview.push(props.Imgs[index])
+        }
+        // for (let index = 0; index < preview.length; index++) {
+            // console.log("Preview: ",preview[index]);
+        // }
         Geolocation.getCurrentPosition((pos) => {
             const crd = pos.coords;
             setPosition({
@@ -44,23 +74,6 @@ export const AddIncident = ({ navigation, route }) => {
             console.log(err);
         });
     }, []);
-    // React.useEffect(() => {
-    //     if (route.params?.path) {
-    //         // Post updated, do something with `route.params.post`
-    //         // For example, send the post to the server
-    //         console.log('mila');
-    //         for (let i = 0; i < route.params.path.length; i++) {
-    //             console.log(route.params.path[i]);
-    //             preview.push(route.params.path[i])
-    //         }
-    //     }
-    // }, [route.params?.path, preview]);
-    // const check=()=>{
-    //     for(let i=0;i<route.params.path.length;i++)
-    //     {
-    //         console.log(route.params.path[i]);
-    //     }
-    // }
     return (
         <View style={[Styles.container, { paddingBottom: HP(0) }]}>
 
@@ -68,25 +81,30 @@ export const AddIncident = ({ navigation, route }) => {
                 <View style={{ flex: 1, paddingBottom: HP(10) }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', paddingLeft: WP((15 / 375) * 100), }}>
                         <Text style={{ marginTop: HP((10 / 375) * 100), color: palette.black, fontFamily: "Poppins-Bold", fontSize: 27, backgroundColor: palette.white }}>Add Incident</Text>
-                        <TouchableOpacity onPress={() => { navigation.navigate('Camera') }} style={{ position: 'absolute', right: WP(9), paddingTop: HP(2), paddingLeft: WP(6), backgroundColor: 'transparent', paddingBottom: WP(2) }}>
+                        <TouchableOpacity onPress={() => { props.navigation.navigate('Camera') }} style={{ position: 'absolute', right: WP(9), paddingTop: HP(2), paddingLeft: WP(6), backgroundColor: 'transparent', paddingBottom: WP(2) }}>
                             <SVGS.camera />
 
                         </TouchableOpacity>
                     </View>
                     <View style={{ paddingHorizontal: WP(1), height: HP(38), borderWidth: .3 }}>
                         <FlatList
-                            data={CONSTANTS.IncidentImgs}
+                            data={props.Imgs}
+                            // data={CONSTANTS.IncidentImgs}
                             numColumns={2}
                             // keyExtractor={(item, index) => index.toString()}
                             renderItem={({ item }) =>
                                 <View  >
-                                    <Image source={item.img} style={Styles.img} />
+                                    <Image source={{uri:item}} style={Styles.img} />
+                                    {/* <Text style={{marginTop:HP(2)}}>{item}</Text> */}
                                     <TouchableOpacity style={{ position: 'absolute', right: WP(2.5), marginTop: HP(1) }}>
                                         <SVGS.cross />
                                     </TouchableOpacity>
                                 </View>
                             }
                         />
+                    {/* <Image source={{uri:"content://media/external_primary/images/media/18888"}} 
+                    style={{width:WP(50),height:HP(10)}}/> */}
+
                     </View>
                     <TextInput placeholder={"Add Title"} style={Styles.title_inp} />
                     <TextInput multiline={true} placeholder={"Add Description"} style={[Styles.title_inp, { marginTop: HP((18 / 812) * 100), paddingBottom: HP((184 / 812) * 100) }]} />
@@ -143,3 +161,17 @@ export const AddIncident = ({ navigation, route }) => {
         </View>
     )
 }
+const mapStateToProps=(state)=>{
+    const {backgroundColor} = state;
+    const {Imgs} = state;
+    // alert(backgroundColor);
+    // alert(Imgs);
+    return state;
+};
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        changeBackgroundColor :() => dispatch(ChangeBackgroundColor()),
+        camereImages :(Imgs) => dispatch(CameraImgs(Imgs))
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(AddIncident);

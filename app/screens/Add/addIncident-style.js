@@ -14,7 +14,8 @@ export const addStyles = StyleSheet.create({
         marginLeft: WP(3), 
         marginTop: HP(1), 
         width: WP((159 / 375) * 100), height: HP((143 / 812) * 100), 
-        borderRadius: WP(6) 
+        borderRadius: WP(6),
+        // backgroundColor:'red' 
     },
     title_inp:{
         borderWidth:1,

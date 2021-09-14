@@ -7,7 +7,9 @@ import { LogBox } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import CameraRoll from "@react-native-community/cameraroll";
 // LogBox.ignoreAllLogs();
-export const Camera = ({ navigation }) => {
+import { connect } from 'react-redux';
+import { CameraImgs, ChangeBackgroundColor } from '../../../root/action';
+const Camera = (props) => {
 
     const [isRecording, setisRecording] = useState(false)
     const [captured, setCaptured] = useState([])
@@ -16,13 +18,13 @@ export const Camera = ({ navigation }) => {
         const options = { quality: 0.5, base64: true };
         const data = await cameraRef.current.takePictureAsync(options);
         console.log(data.uri);
-        console.warn('Image Saved');
-        alert("Image Saved")
+        // console.warn('Image Saved');
+        // alert("Image Saved")
         // console.log((await CameraRoll.save(data.uri, { type: 'photo', album: 'GuardAround' })).toString());
         // const url =await CameraRoll.save(data.uri, { type: 'photo', album: 'GuardAround' })).toString();
         captured.push(await (await CameraRoll.save(data.uri, { type: 'photo', album: 'GuardAround' })).toString());
         // CameraRoll.save(data.uri, { type: 'photo', album: 'GuardAround' });
-
+        props.camereImages(captured);
     };
     const takeVideo = async () => {
         // const data;
@@ -45,7 +47,7 @@ export const Camera = ({ navigation }) => {
     const check = () => {
         for (let i = 0; i < captured.length; i++)
             console.log(captured[i]);
-        navigation.navigate({
+        props.navigation.navigate({
             name: 'AddIncident',
             params: { path: captured },
             merge: true
@@ -75,10 +77,25 @@ export const Camera = ({ navigation }) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => { console.log('Check'); check() }} style={{ margin: HP(2) }}>
-                    <Text style={{ fontFamily: 'Poppins-Bold', color: 'white' }}>Go Back</Text>
+                    <Text style={{ fontFamily: 'Poppins-Bold', color: 'white',fontSize:22 }}>Go Back</Text>
 
                 </TouchableOpacity>
             </View>
         </View>
     )
 }
+const mapStateToProps=(state)=>{
+    const {backgroundColor} = state;
+    const {Imgs} = state;
+    // alert(backgroundColor);
+    // alert(Imgs);
+    console.warn(Imgs);
+    return state;
+};
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        changeBackgroundColor :() => dispatch(ChangeBackgroundColor()),
+        camereImages :(Imgs) => dispatch(CameraImgs(Imgs))
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Camera);

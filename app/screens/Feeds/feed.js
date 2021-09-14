@@ -10,6 +10,7 @@ import { feedStyles as Styles } from './feed-style';
 import { Header } from '../../assets/Imgs/components/header';
 // import Modal from "react-native-modal";
 import { palette } from '../../config/colors';
+// import { FacebookSelector } from 'react-reactions';
 
 export const Feed = ({ navigation }) => {
     const [checked, setChecked] = useState(false)
@@ -37,6 +38,7 @@ export const Feed = ({ navigation }) => {
         <View style={Styles.container}>
             {/* <Text>Saad</Text> */}
             <Header title={'Feed'} />
+            {/* <FacebookSelector /> */}
             {/* <Text style={Styles.ver_txt}>Feed</Text> */}
             {/* <View style={{marginBottom:HP(0)}}> */}
             <FlatList
@@ -56,7 +58,7 @@ export const Feed = ({ navigation }) => {
                                 <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 12, marginLeft: WP(15), color: '#333333', backgroundColor: 'red', color: 'white', paddingLeft: WP(1), paddingRight: WP(1), borderRadius: WP(5) }}>{item.Activity}</Text>
                                 <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 10, marginLeft: WP(20), color: '#333333', marginTop: HP(1) }}>{item.Time}</Text>
                             </View>
-                            <TouchableOpacity style={{position: 'absolute',right: WP(0),marginTop:HP(1)}}>
+                            <TouchableOpacity style={{position: 'absolute',right: WP(3),marginTop:HP(1)}}>
                                 <SVGS.drop />
                             </TouchableOpacity>
                         </View>

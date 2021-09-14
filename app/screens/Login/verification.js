@@ -15,21 +15,8 @@ export const verification = ({ navigation }) => {
             <Text style={Styles.ver_txt}>Verification Code</Text>
             <Text style={{ alignSelf: 'center' }}>We have sent you a code on your phone Number</Text>
             <Text style={{ alignSelf: 'center', marginTop: HP(2) }}>Enter Code Below</Text>
-            {/* <View style={Styles.codeView}>
-                <TextInput maxLength={1} keyboardType={'numeric'} style={Styles.code_txt} onChangeText={(e)=>setCode(code+e)}/>
-                <TextInput maxLength={1} keyboardType={'numeric'} style={Styles.code_txt} onChangeText={(e)=>setCode(code+e)} />
-                <TextInput maxLength={1} keyboardType={'numeric'} style={Styles.code_txt} onChangeText={(e)=>setCode(code+e)} />
-                <TextInput maxLength={1} keyboardType={'numeric'} style={Styles.code_txt} onChangeText={(e)=>setCode(code+e)} />
-            </View> */}
-            {/* <View></View> */}
-            {/* <OtpInputs
-                handleChange={(c) => console.log(c)}
-                numberOfInputs={4}
-            /> */}
-            {/* <OTPInputView pinCount={4} /> */}
             <Otp_input />
             <TouchableOpacity onPress={() => 
-            // onShare()
                  navigation.navigate('verified')
             }
                   style={Styles.touchVerify}>

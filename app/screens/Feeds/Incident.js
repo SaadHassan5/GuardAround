@@ -40,16 +40,19 @@ export const Incident = ({ navigation }) => {
                 paddingHorizontal: WP((8 / 375) * 100)
             }}>
                 <View style={{ flexDirection: 'row' }}>
-                    <Image source={IMAGES.dp} style={{ width: WP(15), height: WP(15), borderRadius: WP(15 / 2) }} />
-                    <View>
-                        <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 21, color: '#333333', }}>Saad Hassan</Text>
-                        <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 11, color: '#333333', }}>3 miles away</Text>
-                    </View>
-                    <View style={{ marginTop: HP(1), right: WP(2), position: 'absolute', }}>
-                        <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 12, marginLeft: WP(15), color: '#333333', backgroundColor: 'red', color: 'white', paddingLeft: WP(1), paddingRight: WP(1), borderRadius: WP(5) }}>Suspicious</Text>
-                        <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 11, marginLeft: WP(20), color: '#333333', marginTop: HP(1) }}>1 month ago</Text>
-                    </View>
-                </View>
+                            <Image source={IMAGES.feed1} style={{ width: WP(15), height: WP(15), borderRadius: WP(15 / 2) }} />
+                            <View style={{paddingLeft:WP(2)}}>
+                                <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 19, color: '#333333', }}>Saad Hassan</Text>
+                                <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 10, color: '#333333', }}>3 miles away</Text>
+                            </View>
+                            <View style={{ marginTop: HP(1), right: WP(8), position: 'absolute', }}>
+                                <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 12, marginLeft: WP(15), color: '#333333', backgroundColor: 'red', color: 'white', paddingLeft: WP(1), paddingRight: WP(1), borderRadius: WP(5) }}>Suspicious</Text>
+                                <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 10, marginLeft: WP(20), color: '#333333', marginTop: HP(1) }}>1 month ago</Text>
+                            </View>
+                            <TouchableOpacity style={{position: 'absolute',right: WP(3),marginTop:HP(1)}}>
+                                <SVGS.drop />
+                            </TouchableOpacity>
+                        </View>
                 <Image source={IMAGES.feed1} style={{ marginLeft: WP(3), marginTop: HP(1), width: WP((347 / 375) * 100), height: HP((311 / 812) * 100), borderRadius: WP(6) }} />
                 <View style={{ flexDirection: 'row', marginLeft: WP((14 / 375) * 100) }}>
                     {/* <IconHeart name='heart-circle'

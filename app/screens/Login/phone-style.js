@@ -9,10 +9,11 @@ export const phoneStyles = StyleSheet.create({
         backgroundColor: 'white',
     },
     img: {
-        marginHorizontal: 
-        WP((60 / 375) * 100), 
+        // marginHorizontal: 
+        // WP((60 / 375) * 100),
+        alignSelf: 'center', 
         marginTop: HP((91 / 812) * 100), 
-        width: WP((255 / 375) * 100), 
+        width: WP((210 / 375) * 100), 
         height: HP((133 / 812) * 100)
     },
     wel_txt: {
